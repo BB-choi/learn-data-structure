@@ -137,6 +137,10 @@ T(n)이 다항식으로 표현된 경우, 최고차항의 차수가 빅-오가 �
 ### 👩‍🏫 대표적인 빅-오
 
 -   성능(수행시간, 연산횟수)의 대소
+<p align="center">
+<img src="./images/big_o_graph.jpg" width="60%"><br>
+출처 : <a href="https://www.bigocheatsheet.com/">https://www.bigocheatsheet.com/</a>
+</p>
 
 ```
 O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(2ⁿ)
@@ -186,3 +190,11 @@ f(n)의 빅-오는 O(g(n))이다.
 ---
 
 `빅-오` : 데이터 수의 증가에 따른 연산횟수 증가율의 **상한선**을 표현
+
+---
+
+Reference
+
+1. https://www.bigocheatsheet.com/
+2. https://www.youtube.com/watch?v=6Iq5iMCVsXA
+3. https://www.youtube.com/watch?v=QBZnX_P_dj4
