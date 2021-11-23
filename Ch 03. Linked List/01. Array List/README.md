@@ -130,11 +130,14 @@ if (LFirst(&list, &data))
 }
 ```
 
+<p align="center">
+    <img src="./images/remove.png" alt="삭제-참고이미지"><br>
+    <a href="https://opentutorials.org/module/1335/8709">https://opentutorials.org/module/1335/8709</a>
+<p>
 -   `LRemove`함수는 `LFirst`함수나 `LNext`함수의 호출을 통해 바로 직전에 참조가 이뤄진 데이터를 삭제한다.
 
-    👉 `LRemove`함수가 호출되면 리스트의 멤버 `curPosition`을 확인해서, 조회가 이뤄진 `데이터의 위치`를 확인한 후에, **그 데이터를 삭제**한다.
-
-    👉 중간에 데이터가 삭제되면, **뒤에 저장된 데이터를 한 칸씩 앞으로 이동**시켜 빈 공간을 메워야 한다.
+> 👉 `LRemove`함수가 호출되면 리스트의 멤버 `curPosition`을 확인해서, 조회가 이뤄진 `데이터의 위치`를 확인한 후에, **그 데이터를 삭제**한다.<br>
+> 👉 중간에 데이터가 삭제되면, **뒤에 저장된 데이터를 한 칸씩 앞으로 이동**시켜 빈 공간을 메워야 한다.
 
 **삭제 구현시 주의사항**
 
@@ -164,3 +167,9 @@ if (LFirst(&list, &data))
 
 -   리스트 `!=` 연결 기반 리스트
     배열 기반 리스트도 각종 자료구조 구현에 중요한 도구
+
+---
+
+References
+
+1. 생활코딩 Data Structure - Array List (https://opentutorials.org/module/1335/8709)
