@@ -155,7 +155,7 @@ if (LFirst(&list, &data))
 ## ArrayList vs LinkedList
 
 
-###ArrayList
+### ArrayList
 최댓값(MAX_LENGTH)이 정해져있는 동적배열
 - `ArrayList.h` 에서 `MAX_LENGTH`을 지정해줌
 - `main.c`에서는 동적배열처럼 사용 가능함 (크기 별도로 지정 가능)
