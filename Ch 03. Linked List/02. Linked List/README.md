@@ -244,7 +244,7 @@ while(pred->next != NULL && plist->comp(data, pred->next->data) != 0)
 }
 ```
 1. `pred->next != NULL` : `pred`가 마지막 노드를 가리키는게 아닌지
-2. `plist->comp(data, pred->enxt->data) != 0` : `newNode`와 `pred`의 다음 노드의 우선순위 비교  
+2. `plist->comp(data, pred->next->data) != 0` : `newNode`와 `pred`의 다음 노드의 우선순위 비교  
     - `comp == 0`  
         : **newNode**가 **pred의 다음 노드**보다 **앞**에 위치해야함
     - `comp == 1`  
