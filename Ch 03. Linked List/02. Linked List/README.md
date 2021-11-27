@@ -163,7 +163,7 @@ void ListInit(List * plist)
 #### 👩‍🏫 Insert  
 정렬기준(`comp`)이
 - 없다면 => `head`에 노드 추가 => `FInsert`
-- 있다면 => 정렬기준에 맞춰서 노드 추가 => `SInsert`
+- 있다면 => 정렬기준에 맞춰서 노드 추가 => [`SInsert`](#04---3-sort-insert)
 
 **FInsert 함수**  
 *list의 맨 앞에 노드를 추가하는 함수 (`dummynode` 제외)*
@@ -249,3 +249,6 @@ while(pred->next != NULL && plist->comp(data, pred->next->data) != 0)
         : **newNode**가 **pred의 다음 노드**보다 **앞**에 위치해야함
     - `comp == 1`  
         : **newNode**가 **pred의 다음 노드**보다 **뒤**에 위치해야함
+
+
+=> `newNode`가 들어갈 위치를 아직 못찾았으면 반복문에 들어간다!
