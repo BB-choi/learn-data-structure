@@ -165,12 +165,14 @@ void ListInit(List * plist)
 - 없다면 => `head`에 노드 추가 => `FInsert`
 - 있다면 => 정렬기준에 맞춰서 노드 추가 => `SInsert`
 
-##### FInsert 함수
-1. insert할 `newNode` 생성
-2. `newNode`에 data 저장
-3. `newNode`가 list의 첫노드를 가리키게 함(`dummy node` 제외)
-4. `dummy node`가 `newNode`를 가리키게 함
-5. list의 노드 갯수 증가시킴
+**FInsert 함수**  
+*list의 맨 앞에 노드를 추가하는 함수 (`dummynode` 제외)*
+##### how to
+>1. insert할 `newNode` 생성
+>2. `newNode`에 data 저장
+>3. `newNode`가 list의 첫노드를 가리키게 함(`dummy node` 제외)
+>4. `dummy node`가 `newNode`를 가리키게 함
+>5. list의 노드 갯수 증가시킴
 ```
 void FInsert(List * plist, LData data)
 {
@@ -210,10 +212,40 @@ plist->cur = plist->cur->next;  // cur : 다음 노드 가리킴
 
 `rpos` : 소멸대상의 주소(`cur`이 가리키고 있는 노드의 주소)  
 `rdata` : 소멸대상의 데이터(`cur`이 가리키고 있는 노드의 데이터)  
-##### how to
-1. 소멸대상인 노드를 `rpos`에 저장
-2. `cur`이 가리키고 있는 노드를 리스트에서 제거 (연결된 포인터를 끊는 방식)
-3. `cur`의 위치를 제거된 노드 이전 위치로 재조정 (`before` 사용!)
-4. `rpos` 노드 소멸(`free`), 노드 수 감소(`numOfData`)
+
+**how to**  
+>1. 소멸대상인 노드를 `rpos`에 저장  
+>2. `cur`이 가리키고 있는 노드를 리스트에서 제거 (연결된 포인터를 끊는 방식)  
+>3. `cur`의 위치를 제거된 노드 이전 위치로 재조정 (`before` 사용!)  
+>4. `rpos` 노드 소멸(`free`), 노드 수 감소(`numOfData`)  
 
 ## 04 - 3. Sort Insert
+1. 정렬 기준을 `comp`에 등록 (`setSortRule` 함수 호출)  
+2. `SInsert` 함수에서 `comp`에 등록된 정렬기준대로 `data`를 정렬하여 저장  
+
+### 👩‍🏫 SInsert
+**how to**  
+1. 새 노드 생성 후 데이터 저장  
+    - `newNode` : 생성된 새 노드  
+    - `pred` : 새 노드가 들어갈 위치의 이전 노드를 가리킴  
+2. `comp`에 저장된 정렬기준에 따라 `newNode`가 들어갈 위치 찾음 (`pred`를 이동시킴)  
+3. 해당 위치에 `newNode` 삽입 (포인터로 list 연결)  
+4. list의 노드 수 증가 (`numOfData`)  
+
+
+*`pred`가 가리키는 노드를 `dummy node`처럼 취급하면, `SInsert`의 작동방식은 `newNode`를 list의 처음에 삽입하는 것이라고 생각할 수 있다.*  
+
+#### 정렬 기준에 따른 `newNode` 삽입 위치 찾기
+```
+//     1. list가 안끝났고     2. newNode가 들어갈 위치를 못찾았으면
+while(pred->next != NULL && plist->comp(data, pred->next->data) != 0)
+{
+  pred = pred->next;   // 이 위치가 아니니 다음 노드로 이동
+}
+```
+1. `pred->next != NULL` : `pred`가 마지막 노드를 가리키는게 아닌지
+2. `plist->comp(data, pred->enxt->data) != 0` : `newNode`와 `pred`의 다음 노드의 우선순위 비교  
+    - `comp == 0`  
+        : **newNode**가 **pred의 다음 노드**보다 **앞**에 위치해야함
+    - `comp == 1`  
+        : **newNode**가 **pred의 다음 노드**보다 **뒤**에 위치해야함
