@@ -104,7 +104,7 @@ else
 > 따라서 `delNextNode`가 다음 노드를 가리켜서 list의 끝까지 `delete`를 수행할 수 있도록 한다.
 
 
-data를 insert / search / delete 할 때, 해당 노드가 첫번째 노드이냐 아니냐에 따라 방법에 차이가 있었음을 기억해라!
+💡data를 insert / search / delete 할 때, 해당 노드가 첫번째 노드이냐 아니냐에 따라 방법에 차이가 있었음을 기억해라!
 
 ## 04 - 2. ADT
 ### Singly Linked List
@@ -144,7 +144,7 @@ typedef struct _linkedList
   int (*comp)(LData d1, LData d2);  // 정렬의 기준을 등록
 } LinkedList;
 ```
-**구조체를 사용해야 하는 이유**  
+**💡구조체를 사용해야 하는 이유**  
 구조체를 사용하지 않는다면 list마다 head, cur 포인터 변수를 별도로 선언해줘야함.  
 만약 다수의 list가 필요한 상황이라면 매번 필요한 포인터 변수를 선언해야하므로 불편하다.
 
@@ -233,7 +233,7 @@ plist->cur = plist->cur->next;  // cur : 다음 노드 가리킴
 4. list의 노드 수 증가 (`numOfData`)  
 
 
-*`pred`가 가리키는 노드를 `dummy node`처럼 취급하면, `SInsert`의 작동방식은 `newNode`를 list의 처음에 삽입하는 것이라고 생각할 수 있다.*  
+*💡`pred`가 가리키는 노드를 `dummy node`처럼 취급하면, `SInsert`의 작동방식은 `newNode`를 list의 처음에 삽입하는 것이라고 생각할 수 있다.*  
 
 #### 정렬 기준에 따른 `newNode` 삽입 위치 찾기
 ```
@@ -251,4 +251,4 @@ while(pred->next != NULL && plist->comp(data, pred->next->data) != 0)
         : **newNode**가 **pred의 다음 노드**보다 **뒤**에 위치해야함
 
 
-=> `newNode`가 들어갈 위치를 아직 못찾았으면 반복문에 들어간다!
+#### => `newNode`가 들어갈 위치를 찾으면 반복문에서 탈출!
