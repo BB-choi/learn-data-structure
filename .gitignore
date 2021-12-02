@@ -1,1 +1,7 @@
 .prettierignore
+
+# Precompiled Headers
+*.gch
+
+# Executables
+*.exe
