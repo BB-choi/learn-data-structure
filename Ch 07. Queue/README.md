@@ -131,3 +131,31 @@ Data Dequeue(Queue * pq)
 시뮬레이션 예제를 통한 큐의 활용 형태 (교재 272p~)
 
 [HamburgerSim.c](./files/HamburgerSim.c)
+
+## Deque의 이해와 구현
+
+### 덱의 이해와 ADT 정의
+
+- 덱은 `양방향`으로 넣고 뺄 수 있다. 
+(스택과 큐의 특성을 모두 갖는 자료구조)
+- 핵심 함수 기능 : 앞으로 넣기, 뒤로 넣기, 앞에서 빼기, 뒤에서 빼기
+
+
+```c
+void DequeInit(Deque * pdeq);
+void DQIsEmpty(Deque * pdeq);
+void DQAddFirst(Deque * pdeq, Data data);
+void DQAddLast(Deque * pdeq, Data data);
+Data DQRemoveFirst(Deque * pdeq);
+Data DQRemoveLast(Deque * pdeq);
+Data DQGetFirst(Deque * pdeq);
+Data DQGetLast(Deque * pdeq);
+```
+
+### 덱의 구현
+
+`양방향 연결 리스트`를 기반으로 구현
+
+👉 꼬리에 위치한 노드를 삭제하는 `DQRemoveLast` 함수에서, 노드가 양방향으로 연결되어 있지 않으면 꼬리에 위치한 노드의 삭제가 간단하지 않으므로
+
+[Deque.h](./files/Deque.h) / [Deque.c](./files/Deque.c) / [DequeMain.c](./files/DequeMain.c)
