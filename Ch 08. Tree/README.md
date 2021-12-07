@@ -24,7 +24,7 @@
 <img src="https://user-images.githubusercontent.com/31379392/144812911-35e2fd05-1649-4857-850b-d55de93fc2ca.jpg">
 <div>   윤성우 저, 열혈 자료 구조</div>
 
-
+---
 ## 08 - 2. 이진 트리 (Binary Tree)
 > - 루트 노드를 중심으로 두개의 서브 트리로 나뉘어짐    
 > - 나뉘어진 두 서브 트리도 모두 이진 트리이어야 함 => 재귀적인 특성을 지님  
@@ -57,11 +57,9 @@
 >1. 필요한 노드 생성 및 초기화
 >2. 부모-자식 관계에 맞게 간선 연결
 
-<img src="https://user-images.githubusercontent.com/31379392/144811114-06d43356-3a17-4e89-bc7d-66c441955d89.jpg" width = "600">  
-<center>윤성우 저, 열혈 자료 구조</center>  
+<p align=center><img src="https://user-images.githubusercontent.com/31379392/144811114-06d43356-3a17-4e89-bc7d-66c441955d89.jpg" width = "600"><br>윤성우 저, 열혈 자료 구조</p>
 
-
-
+<br></br>
 
 **이진 트리의 노드를 표현한 구조체**
 ```c
@@ -75,14 +73,31 @@ typedef struct _bTreeNode
 💡 자식 노드가 하나도 없는 노드도 그 자체로 이진 트리이므로 트리를 표현한 구조체는 정의하지 않음!  
 ( 공집합 노드가 존재한다고 여김 )  
 
-
+---
 ## 08 - 3. 이진 트리의 순회 (Traversal)
 
-### 👩‍🏫
+### 👩‍🏫 루트 노드를 언제 방문하느냐
+<p align=center><img src="https://user-images.githubusercontent.com/31379392/145024213-b5a4e966-378a-430b-8355-eb73845af0db.jpg" width = "600"><br>윤성우 저, 열혈 자료 구조</p>  
+
+1. 먼저 ➡️ **전위 순회** `Preorder Traversal`
+2. 중간에 ➡️ **중위 순회** `Inorder Traversal`
+3. 마지막에 ➡️ **후위 순회** `Postorder Traversal`
+
+💡 높이가 2 이상인 이진 트리는 어떻게 순회하나? ➡️ [재귀적으로 구현](#👩‍🏫-순회의-재귀적-표현)
+### 👩‍🏫 순회의 재귀적 표현 : 중위 순회
+<p align=center><img src="https://user-images.githubusercontent.com/31379392/145025601-54d04ebb-5047-4f0c-a661-f7454e3ada83.jpg" width = "300"><br>윤성우 저, 열혈 자료 구조</p>  
+
+**how to**
+> 1. 왼쪽 서브 트리의 순회  
+> 2. 루트 노드의 방문  
+> 3. 오른쪽 서브 트리의 순회  
+>   
+> * 각 서브 트리에서의 순회에서도 동일한 방법으로 실행
+
+💡 전위 순회와 후위 순회 방식은 방문하는 순서만 변경하면 됨
 
 
-### 👩‍🏫
-
+---
 ## 08 - 4. 수식 트리(Expression Tree)의 구현
 
 ### 👩‍🏫
