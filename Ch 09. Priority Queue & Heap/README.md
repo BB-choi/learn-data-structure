@@ -113,3 +113,28 @@ typedef int PriorityComp * comp(HData d1, Hdata d2);
 
 이와 같은 경우, 기준이 되는 함수만 정의해서 등록하면 된다.
 
+## 우선순위 큐의 구현
+
+구현한 힙을 기반으로 우선순위 큐를 구현
+
+- 구현한 힙의 삽입, 삭제 함수는 우선순위 큐의 `enqueue`, `dequeue`와 같다.
+- 구현한 힙의 헤더에서 구조체 `Heap`,  typedef로 선언된 `HData`를 이용
+
+PriorityQueue.h
+```c
+#ifndef __PRIORITY_QUEUE_H__
+#define __PRIORITY_QUEUE_H__
+
+#include "Heap.h"   // 완성된 힙 헤더
+
+typedef Heap PQueue;
+typedef HData PQData;
+
+void PQueueInit(PQueue * ppq, PriorityComp pc); // 초기화
+int PQIsEmpty(PQueue * ppq);
+
+void PEnqueue(PQueue * ppq, PQData data); // 저장
+PQData PDequeue(PQueue *ppq); // 삭제
+
+#endif
+```
