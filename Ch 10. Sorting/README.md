@@ -32,6 +32,16 @@
 
 삽입 정렬의 빅-오 : `O(n²)`
 
+## 복잡하지만 효율적인 정렬 알고리즘
+
+### 힙 정렬 (Heap Sort)
+
+### 병합 정렬 (Merge Sort)
+
+### 퀵 정렬 (Quick Sort)
+
+### 기수 정렬 (Radix Sort)
+
 ---
 Reference
 
